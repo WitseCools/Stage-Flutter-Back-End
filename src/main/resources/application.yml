@@ -1,0 +1,30 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: iets
+            client-secret: willekeurig
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Stage
+    username: postgres
+    password: admin
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format: true
+app:
+  auth:
+    tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
+    tokenExpirationMsec: 3600000
+  oauth2:
+    authorizedRedirectUris:
+      - https://localhost:8080/home
